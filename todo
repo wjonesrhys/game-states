@@ -1,0 +1,36 @@
+TODO:
+- create a gamestate, mainstate, pausestate, state manager - look into book if it's not intuitive
+- make sure the game finishes and loops expectedly
+- fix the collision between paddle and ball - rect and circle collision
+- create Paddle, Player and Enemy Classes using inheritance
+- add enemy ai movement 
+- add audio to the game
+
+- add options page - framerate, window size, borderless etc
+- add game settings page - difficulty, power up choices, score, speed, modes etc
+- add an about page - author etc.
+
+- create a shop menu
+- add a score calculator by playing against an enemy
+- give credits to the player based on score 
+- allow to purchase characters, skins, new power ups, stats?
+- different wizard dudes to buy
+
+- add power ups - split a ball into two - random direction?
+- add multiple ball collisions
+
+- add networking for PvP?
+
+FIXME:
+
+OTHER:
+can buy different types of balls that do different things
+or you unlock different wizard dudes
+that have different elemental balls
+and outfits
+and there could be a game mode
+called mystery swap
+
+DONE:
+- add a score class to handle all of the text, updating, drawing, checking the last score and whether its become double digits, if it has, check the size for all 0's so that there's no crossover, and update separately
+- fix the scoreboard so there's a minimum distance between the two scores  
