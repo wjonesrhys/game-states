@@ -2,30 +2,25 @@ all: compile link
 
 test: compile link clean run 
 
+#linux
+# compile:
+# 	g++ -c main.cpp ./src/*.cpp -I./headers -I/usr/include/SFML -DSFML_STATIC
+# link:
+# 	g++ ./*.o -o main -L"/lib/x86_64-linux-gnu" -lsfml-graphics -lsfml-window -lsfml-system
+# clean:
+# 	find . -name '*.o' -delete
+# run:
+# 	./main
+
+#windows
 compile:
-# linux
-	g++ -c main.cpp ./src/*.cpp -I./headers -I/usr/include/SFML -DSFML_STATIC
-# windows
-# 	g++ -c main.cpp ./src/*.cpp -I./headers -IC:\SFML\include -DSFML_STATIC
-
+	g++ -c main.cpp ./src/*.cpp -I./headers -IC:\SFML\include -DSFML_STATIC
 link:
-# linux
-	g++ ./*.o -o main -L"/lib/x86_64-linux-gnu" -lsfml-graphics -lsfml-window -lsfml-system
-# windows
-#	g++ ./*.o -o main -LC:\SFML\lib -lsfml-main -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype -static
-
+	g++ ./*.o -o main -LC:\SFML\lib -lsfml-main -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype -static
 clean:
-# linux
-	find . -name '*.o' -delete
-# windows
-# del *.o
-
+	del *.o	
 run:
-# linux
-	./main
-# windows
-# 	main.exe
-
+	main.exe
 
 # READ
 # -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 needs this order to statically link SFML dependencies
