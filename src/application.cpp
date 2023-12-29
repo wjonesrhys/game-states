@@ -1,33 +1,21 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <game.hpp>
+#include <application.hpp>
 #include <gamestate.hpp>
 #include <util.hpp>
 
 #include "SFML/Graphics.hpp"
 
-Game::Game(sf::RenderWindow& renderWindow) : window(renderWindow) {
-
+Application::Application(sf::RenderWindow& renderWindow) : window(renderWindow) {
+    //add statemachine instantiation here and in header file
 }
 
-Game::~Game() {
+Application::~Application() {
     std::cout << "Game Closed";
 }
 
-void Game::changeState(State* state) {
-    currentState = new GameState();
-}
-
-
-void Game::drawGame() {
-    sf::CircleShape shape(100.f);
-    shape.setPosition(window.getSize().x/2, window.getSize().y/2);
-    shape.setFillColor(sf::Color::Green);
-    this->window.draw(shape);
-}
-
-void Game::startGame()
+void Application::start()
 {
     //set the main menu as the first state
     //use a queue stack system to go back if you exit or finish the game
@@ -35,10 +23,9 @@ void Game::startGame()
     while (this->window.isOpen())
     {
         // sf::RenderWindow newwindow();
-        GameState gameState = GameState();
-        gameState.enter();
-        gameState.enter();
-        gameState.enter();
+        // GameState gameState = GameState();
+        // gameState.onEnter();
+
         sf::Event event;
         
         while (this->window.pollEvent(event))
@@ -51,7 +38,8 @@ void Game::startGame()
             }
         }
         this->window.clear();
-        drawGame();
+        // stateMachine.update();
+        // stateMachine.render();
         this->window.display();
     }
 }

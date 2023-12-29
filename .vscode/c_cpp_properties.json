@@ -3,9 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}/src",
-                "${workspaceRoot}/headers",
-                "${workspaceRoot}/menus"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/headers/**",
+                "${workspaceFolder}/headers/states/**"
             ],
             "defines": [
                 "_DEBUG",

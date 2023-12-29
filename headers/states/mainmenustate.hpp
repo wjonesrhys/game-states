@@ -1,16 +1,11 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <game.hpp>
-
 #include <iostream>
-#include <vector>
 
 class MainMenuState : public State {
     private:
-        Game* game;
+
     public:
-        MainMenuState(Game* game) {
-            this->game = game;
+        MainMenuState() {
             setStateName("State B");
         }
 
@@ -19,8 +14,8 @@ class MainMenuState : public State {
             // Additional actions when entering State B
         }
 
-        void exit() override {
-            State::exit();
+        void onExit() override {
+            State::onExit();
             // Additional actions when exiting State B
         }
 
