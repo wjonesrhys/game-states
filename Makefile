@@ -14,7 +14,7 @@ test: compile link clean run
 
 #windows
 compile:
-	g++ -c main.cpp ./src/*.cpp -I./headers -I./headers/states -IC:\SFML\include -DSFML_STATIC
+	g++ -c main.cpp ./src/*.cpp ./src/states/*.cpp -I./headers -I./headers/states -IC:\SFML\include -DSFML_STATIC
 link:
 	g++ ./*.o -o main -LC:\SFML\lib -lsfml-main -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype -static
 clean:

@@ -1,7 +1,9 @@
 #pragma once
-#include <vector>
-
+#include <iostream>
+#include "util.hpp"
+#include "application.hpp"
 #include "statemachine.hpp"
+#include "SFML/Graphics.hpp"
 
 class Application {
     private:

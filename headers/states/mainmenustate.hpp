@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <state.hpp>
 
 class MainMenuState : public State {
     private:

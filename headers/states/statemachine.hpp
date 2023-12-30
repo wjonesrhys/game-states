@@ -1,11 +1,14 @@
 #pragma once
 #include <iostream>
-#include <state.hpp>
-#include <emptystate.hpp>
+#include <map>
 #include <util.hpp>
+
+using std::string;
+using std::map;
 
 class StateMachine {
     private:
+        map<string, string> states;    
         // Map<String, IState> mStates = new Map<String, IState>();
         // State* initialState;
         
@@ -16,6 +19,7 @@ class StateMachine {
         void update();
         void render();
         void change();
-        void add();
+        void add(string key, string value);
 
+        void printStates();
 };
