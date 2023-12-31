@@ -8,7 +8,7 @@
 class State {
     public:
         State() {};
-        ~State() {};
+        virtual ~State() {};
 
         virtual void onEnter();
         virtual void onExit();

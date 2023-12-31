@@ -18,13 +18,17 @@ void Application::start()
     stateMachine.add("game", new GameState(this->window, stateMachine));
     stateMachine.change("mainmenu");
 
+    std::cout << "MainMenuStates: " << MainMenuState::getCounter() << std::endl;
     stateMachine.printStates();
+    stateMachine.~StateMachine();
+    std::cout << "MainMenuStates: " << MainMenuState::getCounter() << std::endl;
+
 
     while (this->window.isOpen())
     {
         this->window.clear();
-        stateMachine.update();
-        stateMachine.render();
+        // stateMachine.update();
+        // stateMachine.render();
         this->window.display();
     }
 }

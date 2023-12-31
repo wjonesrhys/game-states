@@ -7,13 +7,13 @@ StateMachine::StateMachine() {
 }
 
 StateMachine::~StateMachine() {
-    unordered_map<std::string, State*>::iterator itr = states.begin();
-    std::cout << "\nStates Loaded:" << std::endl;
-    // while (it != states.end()) {
-    //     delete itr->second;
-    //     std::cout << it->first << std::endl;
-    //     ++it;
-    // }
+    unordered_map<std::string, State*>::iterator it = states.begin();
+    while (it != states.end()) {
+        std::cout << it->first << std::endl;
+        delete it->second;
+        print("stating");
+        ++it;
+    }
     print("State Machine destroyed.");
 }
 
