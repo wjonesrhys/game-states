@@ -32,18 +32,18 @@ void Menu::moveUp() {
     }
     menuSelected--;
     if (menuSelected == -1) {
-        menuSelected=3;
+        menuSelected=menuItems.size()-1;
         menuItems.at(menuSelected).setFillColor(sf::Color::White);
     }
     menuItems.at(menuSelected).setFillColor(sf::Color::Blue);
 }
 
 void Menu::moveDown() {
-    if (menuSelected + 1 <=4) {
+    if (menuSelected + 1 <=menuItems.size()) {
         menuItems.at(menuSelected).setFillColor(sf::Color::White);
     }    
     menuSelected++;
-    if (menuSelected == 4) {
+    if (menuSelected == menuItems.size()) {
         menuSelected=0;
     }
     menuItems.at(menuSelected).setFillColor(sf::Color::Blue);

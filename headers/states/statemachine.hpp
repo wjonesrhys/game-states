@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <util.hpp>
+#include <state.hpp>
 
 using std::string;
-using std::map;
+using std::unordered_map;
 
 class StateMachine {
     private:
-        map<string, string> states;    
-        // Map<String, IState> mStates = new Map<String, IState>();
-        // State* initialState;
+        unordered_map<string, State*> states;    
+        string currentState;
         
     public:
         StateMachine();
@@ -18,8 +18,8 @@ class StateMachine {
 
         void update();
         void render();
-        void change();
-        void add(string key, string value);
+        void change(std::string stateName);
+        void add(string name, State* state);
 
         void printStates();
 };

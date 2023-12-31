@@ -9,13 +9,9 @@ void State::onExit() {
 }
 
 void State::update() {
-    print("no function definition set up");
+    print("nice try");
 }
 
 void State::render() {
     print("no function definition set up");
-}
-
-void State::setStateName(const std::string& name) {    
-    stateName = name;
 }

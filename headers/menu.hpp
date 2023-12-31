@@ -20,5 +20,5 @@ class Menu {
         void moveDown();
 
         int menuPressed();
-        void setMenuSelected(int index); 
+        void setMenuSelected(int index);
 };

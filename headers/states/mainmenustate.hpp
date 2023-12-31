@@ -1,27 +1,22 @@
 #pragma once
 #include <iostream>
+#include <SFML/Graphics.hpp>
 #include <state.hpp>
+#include <menu.hpp>
+#include <statemachine.hpp>
 
 class MainMenuState : public State {
     private:
+        StateMachine& stateMachine;
+        sf::RenderWindow& window;
+        Menu menu;
 
     public:
-        MainMenuState() {
-            setStateName("State B");
-        }
-
-        void enter() {
-            print("i");
-            // Additional actions when entering State B
-        }
-
-        void onExit() override {
-            State::onExit();
-            // Additional actions when exiting State B
-        }
-
-        void update() override {
-            State::update();
-            // Additional actions when updating State B
-        }
+        MainMenuState(sf::RenderWindow& renderWindow, StateMachine& stateMachine);
+        ~MainMenuState();
+        
+        void onEnter() override;
+        void onExit() override;
+        void update() override;
+        void render() override;
 };

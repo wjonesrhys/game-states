@@ -14,8 +14,4 @@ class State {
         virtual void onExit();
         virtual void update();
         virtual void render();
-        void setStateName(const std::string& name);
-
-    protected:
-        std::string stateName;
 };

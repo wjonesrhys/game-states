@@ -1,5 +1,6 @@
 TODO:
 - create a gamestate, mainstate, pausestate, state manager - look into book if it's not intuitive
+
 - make sure the game finishes and loops expectedly
 - fix the collision between paddle and ball - rect and circle collision
 - create Paddle, Player and Enemy Classes using inheritance
