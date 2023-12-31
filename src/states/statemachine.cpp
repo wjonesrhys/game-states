@@ -11,7 +11,6 @@ StateMachine::~StateMachine() {
     while (it != states.end()) {
         std::cout << it->first << std::endl;
         delete it->second;
-        print("stating");
         ++it;
     }
     print("State Machine destroyed.");

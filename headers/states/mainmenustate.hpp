@@ -10,13 +10,13 @@ class MainMenuState : public State {
         StateMachine& stateMachine;
         sf::RenderWindow& window;
         Menu menu;
-        static int count;
+        // static int count;
 
     public:
         MainMenuState(sf::RenderWindow& renderWindow, StateMachine& stateMachine);
         ~MainMenuState();
         
-        static int getCounter();
+        // static int getCounter();
         void onEnter() override;
         void onExit() override;
         void update() override;

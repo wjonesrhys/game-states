@@ -1,6 +1,6 @@
 #include <mainmenustate.hpp>
 
-int MainMenuState::count = 0;
+// int MainMenuState::count = 0;
 
 MainMenuState::MainMenuState(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
     menu.addItem("Play", true, sf::Vector2f(300, 250));
@@ -8,12 +8,12 @@ MainMenuState::MainMenuState(sf::RenderWindow& renderWindow, StateMachine& state
     menu.addItem("Options", false, sf::Vector2f(300, 450));
     menu.addItem("Exit", false, sf::Vector2f(300, 550));
     print("Main menu state created!");
-    count++;
+    // count++;
 }
 
 MainMenuState::~MainMenuState() {
     print("Main menu destroyed!");
-    count--;
+    // count--;
 }
 
 void MainMenuState::onEnter() {
@@ -62,6 +62,6 @@ void MainMenuState::render() {
     }
 }
 
-int MainMenuState::getCounter() {
-    return count;
-}
+// int MainMenuState::getCounter() {
+//     return count;
+// }
