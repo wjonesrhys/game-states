@@ -1,24 +1,24 @@
-#include <gamestate.hpp>
+#include <playstate.hpp>
 
-GameState::GameState(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
+PlayState::PlayState(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
     menu.addItem("other 1", true, sf::Vector2f(300, 250));
     menu.addItem("other 2", false, sf::Vector2f(300, 350));
     print("Game state created!");
 }
 
-GameState::~GameState() {
+PlayState::~PlayState() {
     print("Game state destroyed!");
 }
 
-void GameState::onEnter() {
+void PlayState::onEnter() {
     print("Game state loaded!");
 }
 
-void GameState::onExit() {
+void PlayState::onExit() {
     print("Game state exited!");
 }
 
-void GameState::update() {
+void PlayState::update() {
     sf::Event event;
     while (this->window.pollEvent(event))
     {
@@ -39,16 +39,20 @@ void GameState::update() {
                 break;
             }
             if (event.key.code == sf::Keyboard::Enter) {
-                if (menu.menuPressed() == 0) {
-                    stateMachine.change("mainmenu");
+                print(menu.menuPressed());
+                switch (menu.menuPressed()) {
+                    case 0:
+                        stateMachine.change("mainmenu");
+                        break;
+                    default:
+                        print("nothing happened");
                 }
-                break;
             }
         }
     }
 }
 
-void GameState::render() {
+void PlayState::render() {
     for (sf::Text text : menu.getItems()) {
         window.draw(text);
     }

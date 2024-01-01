@@ -1,21 +1,21 @@
-#include "application.hpp"
+#include "game.hpp"
 #include "mainmenustate.hpp"
-#include "gamestate.hpp"
+#include "playstate.hpp"
 
-Application::Application(sf::RenderWindow& renderWindow) : window(renderWindow) {
+Game::Game(sf::RenderWindow& renderWindow) : window(renderWindow) {
     //add statemachine instantiation here and in header file
     print("Application Created");
 }
 
-Application::~Application() {
+Game::~Game() {
     print("Application Closed");
 }
 
-void Application::start()
+void Game::start()
 {
     StateMachine stateMachine;    
     stateMachine.add("mainmenu", new MainMenuState(this->window, stateMachine));
-    stateMachine.add("game", new GameState(this->window, stateMachine));
+    stateMachine.add("play", new PlayState(this->window, stateMachine));
     stateMachine.change("mainmenu");
 
     stateMachine.printStates();

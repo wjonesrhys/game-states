@@ -45,10 +45,14 @@ void MainMenuState::update() {
                 break;
             }
             if (event.key.code == sf::Keyboard::Enter) {
-                if (menu.menuPressed() == 0) {
-                    stateMachine.change("game");
+                print(menu.menuPressed());
+                switch (menu.menuPressed()) {
+                    case 0:
+                        stateMachine.change("play");
+                        break;
+                    default:
+                        print("nothing happened");
                 }
-                break;
             }
         }
     }

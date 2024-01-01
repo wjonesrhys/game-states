@@ -16,9 +16,9 @@ class MainMenuState : public State {
         MainMenuState(sf::RenderWindow& renderWindow, StateMachine& stateMachine);
         ~MainMenuState();
         
-        // static int getCounter();
         void onEnter() override;
         void onExit() override;
         void update() override;
         void render() override;
+        // static int getCounter();
 };
