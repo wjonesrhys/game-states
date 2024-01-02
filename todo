@@ -1,5 +1,8 @@
 TODO:
 - create a gamestate, mainstate, pausestate, state manager - look into book if it's not intuitive
+- create a stackmachine and statemachine
+    - potentially use stack machine within main menu and play state
+    - use state machine for the transition to states and stack machine for behaviour within states?
 
 - make sure the game finishes and loops expectedly
 - fix the collision between paddle and ball - rect and circle collision
