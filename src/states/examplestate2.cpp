@@ -1,30 +1,25 @@
-#include <mainmenustate.hpp>
+#include <ExampleState2.hpp>
 
-// int MainMenuState::count = 0;
+// int ExampleState2::count = 0;
 
-MainMenuState::MainMenuState(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
-    menu.addItem("Play", true, sf::Vector2f(300, 250));
-    menu.addItem("About", false, sf::Vector2f(300, 350));
-    menu.addItem("Options", false, sf::Vector2f(300, 450));
-    menu.addItem("Exit", false, sf::Vector2f(300, 550));
-    print("Main menu state created!");
-    // count++;
+ExampleState2::ExampleState2(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
+    menu.addItem("Example State 2", true, sf::Vector2f(300, 250));
 }
 
-MainMenuState::~MainMenuState() {
+ExampleState2::~ExampleState2() {
     print("Main menu destroyed!");
     // count--;
 }
 
-void MainMenuState::onEnter() {
+void ExampleState2::onEnter() {
     print("Main menu loaded!");
 }
 
-void MainMenuState::onExit() {
+void ExampleState2::onExit() {
     print("Main menu exited!");
 }
 
-void MainMenuState::update() {
+void ExampleState2::update() {
     sf::Event event;
     while (this->window.pollEvent(event))
     {
@@ -60,12 +55,12 @@ void MainMenuState::update() {
 
 }
 
-void MainMenuState::render() {
+void ExampleState2::render() {
     for (sf::Text text : menu.getItems()) {
         window.draw(text);
     }
 }
 
-// int MainMenuState::getCounter() {
+// int ExampleState2::getCounter() {
 //     return count;
 // }
