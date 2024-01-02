@@ -4,11 +4,11 @@
 
 Game::Game(sf::RenderWindow& renderWindow) : window(renderWindow) {
     //add statemachine instantiation here and in header file
-    print("Application Created");
+    print("Game Created");
 }
 
 Game::~Game() {
-    print("Application Closed");
+    print("Game Closed");
 }
 
 void Game::start()

@@ -2,7 +2,7 @@
 #include <util.hpp>
 
 Menu::Menu() {
-    if (!font.loadFromFile("fonts/arial.ttf")) {
+    if (!font.loadFromFile("resources/fonts/arial.ttf")) {
         std::cout << "not loaded";
     }
     setMenuSelected(-1);
