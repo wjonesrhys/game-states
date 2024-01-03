@@ -1,3 +1,5 @@
 *.exe
 main
+**/Makefile
 Makefile
+Makefile.in
