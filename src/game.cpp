@@ -23,9 +23,9 @@ void Game::start()
     // stateMachine.add("play", new PlayState(this->window, stateMachine));
     // stateMachine.change("mainmenu");
 
-    stateMachine.push("ex1", new ExampleState1(tis->window, stateMachine));
-    stateMachine.push("ex2", new ExampleState2(tis->window, stateMachine));
-    stateMachine.push("ex3", new ExampleState3(tis->window, stateMachine));
+    stateMachine.push(new ExampleState1(this->window, stateMachine));
+    stateMachine.push(new ExampleState2(this->window, stateMachine));
+    stateMachine.push(new ExampleState3(this->window, stateMachine));
 
     stateMachine.printStates();
 
