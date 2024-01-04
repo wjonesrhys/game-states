@@ -2,6 +2,11 @@
 #include "mainmenustate.hpp"
 #include "playstate.hpp"
 
+#include "examplestate1.hpp"
+#include "examplestate2.hpp"
+#include "examplestate3.hpp"
+
+
 Game::Game(sf::RenderWindow& renderWindow) : window(renderWindow) {
     //add statemachine instantiation here and in header file
     print("Game Created");
@@ -14,9 +19,13 @@ Game::~Game() {
 void Game::start()
 {
     StateMachine stateMachine;    
-    stateMachine.add("mainmenu", new MainMenuState(this->window, stateMachine));
-    stateMachine.add("play", new PlayState(this->window, stateMachine));
-    stateMachine.change("mainmenu");
+    // stateMachine.add("mainmenu", new MainMenuState(this->window, stateMachine));
+    // stateMachine.add("play", new PlayState(this->window, stateMachine));
+    // stateMachine.change("mainmenu");
+
+    stateMachine.push("ex1", new ExampleState1(tis->window, stateMachine));
+    stateMachine.push("ex2", new ExampleState2(tis->window, stateMachine));
+    stateMachine.push("ex3", new ExampleState3(tis->window, stateMachine));
 
     stateMachine.printStates();
 
@@ -27,8 +36,10 @@ void Game::start()
     while (this->window.isOpen())
     {
         this->window.clear();
-        stateMachine.update();
-        stateMachine.render();
+        // stateMachine.update();
+        // stateMachine.render();
+        stateMachine.updateStack();
+        stateMachine.renderStack();
         this->window.display();
     }
 }

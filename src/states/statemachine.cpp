@@ -1,5 +1,4 @@
 #include "statemachine.hpp"
-#include "state.hpp"
 
 StateMachine::StateMachine() {
     print("State Machine created.");
@@ -24,6 +23,14 @@ void StateMachine::render() {
     states.at(currentState)->render();
 }
 
+void StateMachine::updateStack() {
+    stacked_states.top()->update();
+}
+
+void StateMachine::renderStack() {
+    stacked_states.top()->update();
+}
+
 void StateMachine::change(std::string stateName) {
     try {
         states.at(stateName);
@@ -38,6 +45,16 @@ void StateMachine::change(std::string stateName) {
 void StateMachine::add(string name, State* state) {
     print("added " + name + " to array of states");
     states[name] = state;
+}
+
+void StateMachine::push(State* state) {
+    stacked_states.push(state);
+}
+
+void StateMachine::pop() {
+    if (!stacked_states.empty()) {
+        stacked_states.pop();
+    }
 }
 
 void StateMachine::printStates() {
