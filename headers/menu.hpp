@@ -20,5 +20,9 @@ class Menu {
         void moveDown();
 
         int menuPressed();
+
+        void clearColouredText();
+        void colourMenuSelected();
+        
         void setMenuSelected(int index);
 };

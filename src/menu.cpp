@@ -5,7 +5,7 @@ Menu::Menu() {
     if (!font.loadFromFile("resources/fonts/arial.ttf")) {
         std::cout << "not loaded";
     }
-    setMenuSelected(-1);
+    setMenuSelected(0);
 }
 
 Menu::~Menu() {
@@ -18,7 +18,6 @@ std::vector<sf::Text> Menu::getItems() {
 
 void Menu::addItem(std::string text, bool isOn, sf::Vector2f position) {
     sf::Text menuText;
-    isOn ? menuText.setFillColor(sf::Color::Blue) : menuText.setFillColor(sf::Color::White);
     menuText.setFont(font);
     menuText.setString(text);
     menuText.setCharacterSize(70);
@@ -50,9 +49,24 @@ void Menu::moveDown() {
 }
 
 int Menu::menuPressed() {
+    print("menu number selected: " + menuSelected);
     return menuSelected;
 }
 
+void Menu::clearColouredText() {
+    for (sf::Text text : menuItems) {
+        text.setFillColor(sf::Color::White);
+    }
+}
+
+void Menu::colourMenuSelected() {
+    this->menuItems.at(menuSelected).setFillColor(sf::Color::Blue);
+}
+
 void Menu::setMenuSelected(int index) {
-    menuSelected = 0;
+    menuSelected = index;
+    if (menuItems.size() > 0) {
+        clearColouredText();    
+        colourMenuSelected();   
+    }
 }

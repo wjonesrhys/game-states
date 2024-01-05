@@ -3,22 +3,26 @@
 // int ExampleState3::count = 0;
 
 ExampleState3::ExampleState3(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
-    menu.addItem("Example State 3", true, sf::Vector2f(300, 250));
-    print("Main menu state created!");
+    menu.addItem("hi 3", true, sf::Vector2f(300, 250));
+    menu.addItem("hihi", false, sf::Vector2f(300, 350));
+    menu.addItem("hihihi", false, sf::Vector2f(300, 450));
+    menu.addItem("hihihihi", false, sf::Vector2f(300, 550));
+    print("Example state 3 state created!");
     // count++;
 }
 
 ExampleState3::~ExampleState3() {
-    print("Main menu destroyed!");
+    print("Example state 3 destroyed!");
     // count--;
 }
 
 void ExampleState3::onEnter() {
-    print("Main menu loaded!");
+    print("Example state 3 loaded!");
+    menu.colourMenuSelected();
 }
 
 void ExampleState3::onExit() {
-    print("Main menu exited!");
+    print("Example state 3 exited!");
 }
 
 void ExampleState3::update() {
@@ -45,7 +49,10 @@ void ExampleState3::update() {
                 print(menu.menuPressed());
                 switch (menu.menuPressed()) {
                     case 0:
-                        stateMachine.change("play");
+                        // stateMachine.change("play");
+                        break;
+                    case 1:
+                        stateMachine.pop();
                         break;
                     default:
                         print("nothing happened");

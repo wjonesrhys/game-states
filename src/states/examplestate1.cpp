@@ -1,22 +1,28 @@
 #include <examplestate1.hpp>
+#include <examplestate2.hpp>
 
 // int ExampleState1::count = 0;
 
 ExampleState1::ExampleState1(sf::RenderWindow& renderWindow, StateMachine& stateMachine) : window(renderWindow), stateMachine(stateMachine){
-    menu.addItem("Example State 1", true, sf::Vector2f(300, 250));
+    menu.addItem("hi 1", true, sf::Vector2f(300, 250));
+    menu.addItem("hihi", false, sf::Vector2f(300, 350));
+    menu.addItem("hihihi", false, sf::Vector2f(300, 450));
+    menu.addItem("hihihihi", false, sf::Vector2f(300, 550));
+    print("Example state 1 state created!");
 }
 
 ExampleState1::~ExampleState1() {
-    print("Main menu destroyed!");
+    print("Example state 1 destroyed!");
     // count--;
 }
 
 void ExampleState1::onEnter() {
-    print("Main menu loaded!");
+    print("Example state 1 loaded!");
+    menu.colourMenuSelected();
 }
 
 void ExampleState1::onExit() {
-    print("Main menu exited!");
+    print("Example state 1 exited!");
 }
 
 void ExampleState1::update() {
@@ -43,8 +49,14 @@ void ExampleState1::update() {
                 print(menu.menuPressed());
                 switch (menu.menuPressed()) {
                     case 0:
-                        stateMachine.change("play");
+                        stateMachine.push(new ExampleState2(this->window, stateMachine));
                         break;
+                    case 1:
+                        // stateMachine.pop();
+                        break;
+                    case 2:
+                        menu.clearColouredText();
+                        menu.colourMenuSelected();
                     default:
                         print("nothing happened");
                 }

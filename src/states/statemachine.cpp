@@ -2,7 +2,6 @@
 
 StateMachine::StateMachine() {
     print("State Machine created.");
-    currentState = "";
 }
 
 StateMachine::~StateMachine() {
@@ -28,7 +27,7 @@ void StateMachine::updateStack() {
 }
 
 void StateMachine::renderStack() {
-    stacked_states.top()->update();
+    stacked_states.top()->render();
 }
 
 void StateMachine::change(std::string stateName) {
@@ -49,11 +48,14 @@ void StateMachine::add(string name, State* state) {
 
 void StateMachine::push(State* state) {
     stacked_states.push(state);
+    state->onEnter();
 }
 
 void StateMachine::pop() {
     if (!stacked_states.empty()) {
+        stacked_states.top()->onExit();
         stacked_states.pop();
+        stacked_states.top()->onEnter();
     }
 }
 
