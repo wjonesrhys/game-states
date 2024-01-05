@@ -25,8 +25,11 @@ class StateMachine {
         void updateStack();
         void renderStack();
 
+        /* Normal */
         void change(string stateName);
         void add(string name, State* state);
+
+        /* Stack */
         void push(State* state);
         void pop();
 
