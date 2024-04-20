@@ -1,3 +1,6 @@
-*.exe
-main
 Makefile
+bin/
+build/
+.vscode
+.gitignore
+imgui.ini

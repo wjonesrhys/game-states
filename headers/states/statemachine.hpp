@@ -4,16 +4,13 @@
 #include <state.hpp>
 
 #include <stack>
-
-using std::string;
-using std::unordered_map;
-using std::stack;
+#include <unordered_map>
 
 class StateMachine {
     private:
-        unordered_map<string, State*> states;    
-        stack<State*> stacked_states;
-        string currentState;
+        std::unordered_map<std::string, State*> states;    
+        std::stack<State*> stacked_states;
+        std::string currentState;
         
     public:
         StateMachine();
@@ -26,8 +23,8 @@ class StateMachine {
         void renderStack();
 
         /* Normal */
-        void change(string stateName);
-        void add(string name, State* state);
+        void change(std::string stateName);
+        void add(std::string name, State* state);
 
         /* Stack */
         void push(State* state);
